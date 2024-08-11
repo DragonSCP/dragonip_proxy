@@ -1,0 +1,50 @@
+# Configuração do Proxy - dragonip
+
+# Proxy IP e portas
+proxy_ip = "192.0.2.100"
+
+# Portas de conexão
+ports = [22, 2222, 2200, 2022]
+
+# Métodos de conexão SSH
+ssh_methods = ["password", "key", "keyboard-interactive"]
+
+# Configurações de autenticação
+authentication = {
+    "password": {
+        "username": "user",
+        "password": "password"
+    },
+    "key": {
+        "username": "user",
+        "private_key_path": "/path/to/private_key"
+    }
+}
+
+# Configuração de regras de acesso
+access_rules = [
+    {
+        "ip": "0.0.0.0/0",
+        "port": 22,
+        "protocol": "tcp",
+        "action": "allow"
+    },
+    {
+        "ip": "192.168.1.0/24",
+        "port": 2222,
+        "protocol": "tcp",
+        "action": "allow"
+    }
+]
+
+# Logs
+logging = {
+    "enabled": True,
+    "log_file": "/var/log/proxy.log"
+}
+
+# Configurações adicionais
+extra_settings = {
+    "timeout": 300,
+    "max_connections": 100
+}
